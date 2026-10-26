@@ -65,16 +65,8 @@ body.summer { --primary:#428150; --deep:#245d3b; --accent:#e6b347; --paper:#f1f8
   box-shadow: 0 8px 24px rgba(27, 67, 50, 0.22);
 }
 .hero-left { z-index: 1; }
-.hero-title-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.hero h1 {
-  font-size: 24px;
-  font-weight: 850;
-  letter-spacing: -0.4px;
-}
+.hero-title-row { display: flex; align-items: center; gap: 8px; }
+.hero h1 { font-size: 24px; font-weight: 850; letter-spacing: -0.4px; }
 .hero-ver {
   font-size: 11px;
   background: rgba(255, 255, 255, 0.25);
@@ -94,12 +86,7 @@ body.summer { --primary:#428150; --deep:#245d3b; --accent:#e6b347; --paper:#f1f8
 .banner-decor { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 
 /* Верхние кнопки */
-.top-actions {
-  display: flex;
-  gap: 8px;
-  justify-content: flex-end;
-  margin-bottom: 12px;
-}
+.top-actions { display: flex; gap: 8px; justify-content: flex-end; margin-bottom: 12px; }
 .top-btn {
   border: 1px solid var(--line);
   background: var(--card);
@@ -153,17 +140,18 @@ body.summer { --primary:#428150; --deep:#245d3b; --accent:#e6b347; --paper:#f1f8
 details { border-top: 1px dashed var(--line); margin-top: 11px; padding-top: 9px; }
 summary { color: var(--deep); font-size: 12px; font-weight: 750; cursor: pointer; }
 
-/* Форма */
+/* Ровная удобная сетка форм */
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .field { margin-top: 10px; min-width: 0; }
-label { display: block; font-size: 11px; color: var(--muted); font-weight: 650; margin-bottom: 4px; }
+label.field-lbl { display: block; font-size: 12px; color: var(--muted); font-weight: 650; margin-bottom: 5px; }
 
-/* Обычные инпуты текста/даты/выбора (без чекбоксов!) */
-input[type=text], input[type=number], input[type=date], select {
+/* Аккуратные ровные инпуты */
+.inp-box {
   display: block;
   width: 100%;
   height: 44px;
-  padding: 0 10px;
+  line-height: 44px;
+  padding: 0 12px;
   background: #fff;
   color: var(--ink);
   border: 1.5px solid var(--line);
@@ -173,8 +161,11 @@ input[type=text], input[type=number], input[type=date], select {
   appearance: none;
   -webkit-appearance: none;
 }
-input[type=date] { padding: 8px 10px; line-height: 1.2; }
-input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select:focus {
+input[type=date].inp-box {
+  padding: 8px 10px;
+  line-height: 1.2;
+}
+.inp-box:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
 }
@@ -187,7 +178,7 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   color: #fff;
   font-weight: 800;
   height: 46px;
-  margin-top: 12px;
+  margin-top: 14px;
   box-shadow: 0 4px 12px rgba(27,67,50,0.2);
 }
 
@@ -229,48 +220,18 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   font-size: 12px;
   font-weight: 750;
 }
-.chevron {
-  font-size: 13px;
-  color: var(--muted);
-  transition: transform .25s ease;
-}
+.chevron { font-size: 13px; color: var(--muted); transition: transform .25s ease; }
 .spoiler-header.open .chevron { transform: rotate(180deg); }
 .spoiler-body { display: none; }
 .spoiler-body.open { display: block; }
 
 /* Клиенты */
-.client-card {
-  padding: 14px 15px;
-  margin-bottom: 10px;
-}
-.client-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
-}
-.client-name {
-  font-size: 16px;
-  font-weight: 850;
-  color: var(--ink);
-}
-.client-summary {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 2px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.client-totals {
-  text-align: right;
-  white-space: nowrap;
-}
-.client-total-sum {
-  font-size: 17px;
-  font-weight: 850;
-  color: var(--deep);
-}
+.client-card { padding: 14px 15px; margin-bottom: 10px; }
+.client-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.client-name { font-size: 16px; font-weight: 850; color: var(--ink); }
+.client-summary { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; gap: 8px; flex-wrap: wrap; }
+.client-totals { text-align: right; white-space: nowrap; }
+.client-total-sum { font-size: 17px; font-weight: 850; color: var(--deep); }
 .client-debt-tag {
   display: inline-block;
   background: #fbe4e3;
@@ -322,13 +283,7 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
 }
 .tag.cash { background: #e2f4e7; color: #28783b; }
 .tag.debt { background: #fbe4e3; color: #b93137; }
-.order-del-btn {
-  border: none;
-  background: none;
-  color: #9aa0a3;
-  font-size: 12px;
-  padding: 2px 4px;
-}
+.order-del-btn { border: none; background: none; color: #9aa0a3; font-size: 12px; padding: 2px 4px; }
 .paid-btn {
   border: none;
   background: var(--soft);
@@ -339,7 +294,7 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   border-radius: 6px;
 }
 
-/* Модальные окна */
+/* Модалки */
 .modal {
   position: fixed;
   inset: 0;
@@ -366,20 +321,8 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   from { transform: translateY(20px); opacity: .4; }
   to { transform: translateY(0); opacity: 1; }
 }
-.sheet-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-.sheet-header h2 {
-  font-size: 19px;
-  font-weight: 850;
-  color: var(--deep);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.sheet-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.sheet-header h2 { font-size: 19px; font-weight: 850; color: var(--deep); display: flex; align-items: center; gap: 8px; }
 .close-modal-btn {
   border: 0;
   background: #eee9df;
@@ -390,7 +333,7 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   color: #48514c;
 }
 
-/* Карточки пород v0.6 */
+/* Породы */
 .breed-card {
   padding: 12px 14px;
   margin-bottom: 11px;
@@ -416,65 +359,16 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   cursor: pointer;
   border: 1.5px solid var(--line);
 }
-.breed-thumb-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.breed-details {
-  flex: 1;
-  min-width: 0;
-}
-.breed-name-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 850;
-  font-size: 15px;
-  color: var(--deep);
-}
-.breed-badge {
-  background: var(--soft);
-  color: var(--deep);
-  padding: 1px 7px;
-  border-radius: 8px;
-  font-size: 11px;
-  font-weight: 800;
-}
-.breed-dates-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4px;
-  margin-top: 6px;
-  font-size: 12px;
-  color: var(--muted);
-}
-.breed-date-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.breed-date-item b {
-  color: var(--ink);
-  font-weight: 700;
-}
-.tag-not-laying {
-  background: #fee2e2;
-  color: #dc2626;
-  font-weight: 750;
-  font-size: 11px;
-  padding: 1px 6px;
-  border-radius: 6px;
-  display: inline-block;
-}
+.breed-thumb-box img { width: 100%; height: 100%; object-fit: cover; }
+.breed-details { flex: 1; min-width: 0; }
+.breed-name-row { display: flex; align-items: center; gap: 6px; font-weight: 850; font-size: 15px; color: var(--deep); }
+.breed-badge { background: var(--soft); color: var(--deep); padding: 1px 7px; border-radius: 8px; font-size: 11px; font-weight: 800; }
+.breed-dates-grid { display: grid; grid-template-columns: 1fr; gap: 4px; margin-top: 6px; font-size: 12px; color: var(--muted); }
+.breed-date-item { display: flex; align-items: center; gap: 5px; }
+.breed-date-item b { color: var(--ink); font-weight: 700; }
+.tag-not-laying { background: #fee2e2; color: #dc2626; font-weight: 750; font-size: 11px; padding: 1px 6px; border-radius: 6px; display: inline-block; }
 
-/* Кнопки действий карточки породы (Редактировать и Удалить) */
-.breed-actions-col {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: center;
-}
+.breed-actions-col { display: flex; flex-direction: column; gap: 6px; align-items: center; }
 .breed-icon-btn {
   border: 1px solid var(--line);
   background: #f8f9fa;
@@ -488,37 +382,27 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   cursor: pointer;
   color: var(--deep);
 }
-.breed-icon-btn:active {
-  background: var(--soft);
-}
-.breed-icon-btn.del {
-  color: #adb5bd;
-}
-.breed-icon-btn.del:active {
-  color: #dc2626;
-  background: #fee2e2;
-}
+.breed-icon-btn:active { background: var(--soft); }
+.breed-icon-btn.del { color: #adb5bd; }
+.breed-icon-btn.del:active { color: #dc2626; background: #fee2e2; }
 
-/* Кастомный красивый чекбокс «Не несётся» со 100% видимой галочкой */
+/* Кастомный чекбокс с чёткой белой галочкой на изумрудном фоне */
 .custom-checkbox-row {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   margin-top: 8px;
   cursor: pointer;
   user-select: none;
 }
 .custom-checkbox-row input[type=checkbox] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
+  display: none;
 }
 .custom-checkbox-box {
-  width: 24px;
-  height: 24px;
-  border-radius: 7px;
-  border: 2px solid #b7c4bd;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid #95a59d;
   background: #fff;
   display: flex;
   align-items: center;
@@ -541,13 +425,8 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
 .custom-checkbox-row input[type=checkbox]:checked + .custom-checkbox-box svg {
   display: block;
 }
-.custom-checkbox-label {
-  font-size: 13px;
-  font-weight: 750;
-  color: var(--deep);
-}
+.custom-checkbox-label { font-size: 12px; font-weight: 750; color: var(--deep); }
 
-/* Кнопка со скрепкой: прикрепить фото */
 .attach-photo-btn {
   display: flex;
   align-items: center;
@@ -573,7 +452,6 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   display: none;
 }
 
-/* Модалка просмотра полного фото */
 .photo-viewer-modal {
   position: fixed;
   inset: 0;
@@ -585,12 +463,7 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   padding: 20px;
 }
 .photo-viewer-modal.open { display: flex; }
-.photo-viewer-img {
-  max-width: 95%;
-  max-height: 80vh;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-}
+.photo-viewer-img { max-width: 95%; max-height: 80vh; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
 
 /* Скины */
 .skin-choice {
@@ -612,7 +485,6 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
 .skin-choice small { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
 .check { margin-left: auto; color: var(--primary); font-weight: 900; }
 
-/* Нижние инструменты */
 .tools { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 18px; }
 .secondary {
   border: 1px solid var(--line);
@@ -653,7 +525,6 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
 <body>
 <main>
 
-  <!-- Баннер v0.6 -->
   <header class="hero">
     <div class="hero-left">
       <div class="hero-title-row">
@@ -666,13 +537,11 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
     <div class="banner-decor" id="bannerDecor"></div>
   </header>
 
-  <!-- Верхние кнопки -->
   <div class="top-actions">
     <button class="top-btn" id="breedsBtn">🐔 Породы кур</button>
     <button class="top-btn" id="skinsOpen">🎨 Обложки</button>
   </div>
 
-  <!-- Факт -->
   <section class="card fact">
     <div class="fact-top">
       <span class="eyebrow">🐔 Куриная мудрость</span>
@@ -682,7 +551,6 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
     <p id="factText"></p>
   </section>
 
-  <!-- Цель -->
   <section class="card goal" id="goalCard">
     <div class="goal-main">
       <div class="goal-hen" id="goalHen"></div>
@@ -698,12 +566,12 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
       <form id="goalForm">
         <div class="row">
           <div class="field">
-            <label for="goalName">Название цели</label>
-            <input id="goalName" maxlength="80" required>
+            <label class="field-lbl" for="goalName">Название цели</label>
+            <input class="inp-box" id="goalName" maxlength="80" required>
           </div>
           <div class="field">
-            <label for="goalTarget">Сумма (₽)</label>
-            <input id="goalTarget" type="number" min="1" step="1" required>
+            <label class="field-lbl" for="goalTarget">Сумма (₽)</label>
+            <input class="inp-box" id="goalTarget" type="number" min="1" step="1" required>
           </div>
         </div>
         <button class="primary" style="height:40px;margin-top:10px;">Сохранить цель</button>
@@ -711,7 +579,6 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
     </details>
   </section>
 
-  <!-- Сводка -->
   <div class="stats">
     <div class="card stat"><span>Продано</span><b id="statQty">0 дес.</b></div>
     <div class="card stat"><span>Выручка</span><b id="statRevenue">0 ₽</b></div>
@@ -719,49 +586,47 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
     <div class="card stat"><span>В долгах</span><b class="debt" id="statDebt">0 ₽</b></div>
   </div>
 
-  <!-- Форма новой продажи -->
   <section class="card form-card">
     <h2 style="font-size:16px;color:var(--deep);font-weight:800;margin-bottom:6px;">📝 Новая продажа</h2>
     <form id="saleForm">
       <div class="row">
         <div class="field">
-          <label for="saleDate">Дата продажи</label>
-          <input id="saleDate" type="date" required>
+          <label class="field-lbl" for="saleDate">Дата продажи</label>
+          <input class="inp-box" id="saleDate" type="date" required>
         </div>
         <div class="field">
-          <label for="buyer">Покупатель / Фамилия</label>
-          <input id="buyer" placeholder="напр. Князев" required maxlength="120">
-        </div>
-      </div>
-      <div class="row">
-        <div class="field">
-          <label for="qty">Кол-во (дес.)</label>
-          <input id="qty" type="number" min="0.5" step="0.5" placeholder="напр. 2" required>
-        </div>
-        <div class="field">
-          <label for="price">Цена за дес. (₽)</label>
-          <input id="price" type="number" min="0" step="10" value="160" required>
+          <label class="field-lbl" for="buyer">Покупатель / Фамилия</label>
+          <input class="inp-box" id="buyer" placeholder="напр. Князев" required maxlength="120">
         </div>
       </div>
       <div class="row">
         <div class="field">
-          <label for="payment">Оплата</label>
-          <select id="payment">
+          <label class="field-lbl" for="qty">Кол-во (дес.)</label>
+          <input class="inp-box" id="qty" type="number" min="0.5" step="0.5" placeholder="напр. 2" required>
+        </div>
+        <div class="field">
+          <label class="field-lbl" for="price">Цена за дес. (₽)</label>
+          <input class="inp-box" id="price" type="number" min="0" step="10" value="160" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label class="field-lbl" for="payment">Оплата</label>
+          <select class="inp-box" id="payment">
             <option>СБП (перевод)</option>
             <option>Наличные</option>
             <option>В долг</option>
           </select>
         </div>
         <div class="field">
-          <label for="note">Заметка</label>
-          <input id="note" placeholder="у калитки...">
+          <label class="field-lbl" for="note">Заметка</label>
+          <input class="inp-box" id="note" placeholder="у калитки...">
         </div>
       </div>
       <button class="primary" type="submit">Сохранить запись 🥚</button>
     </form>
   </section>
 
-  <!-- Спойлер: Покупатели и заказы -->
   <div class="spoiler-header" id="clientsSpoilerToggle">
     <div class="spoiler-title">
       <span>👥 Покупатели и заказы</span>
@@ -774,7 +639,6 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
     <div id="clientsGroupedList"></div>
   </div>
 
-  <!-- Инструменты -->
   <div class="tools">
     <button class="secondary" id="exportCSV">📊 Скачать таблицу</button>
     <button class="secondary" id="backup">💾 Резервная копия</button>
@@ -785,7 +649,6 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
 
 </main>
 
-<!-- Диалоговое окно: ПОРОДЫ КУР v0.6 -->
 <div class="modal" id="breedsModal" role="dialog" aria-modal="true">
   <div class="sheet">
     <div class="sheet-header">
@@ -797,10 +660,8 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
       Каталог поголовья: фото, даты вылупа, начало кладки и редактирование.
     </div>
 
-    <!-- Список пород -->
     <div id="breedsList" style="margin-bottom:16px;"></div>
 
-    <!-- Форма добавления / редактирования породы -->
     <div id="breedFormContainer" style="background:var(--soft);padding:15px;border-radius:18px;border:1px solid var(--line);">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
         <div id="breedFormHeaderTitle" style="font-size:14px;font-weight:850;color:var(--deep);">
@@ -816,25 +677,24 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
 
         <div class="row">
           <div class="field" style="margin-top:0;">
-            <label>🐔 Порода / Кросс</label>
-            <input id="breedName" placeholder="Ломан, Доминант..." required maxlength="60">
+            <label class="field-lbl">🐔 Порода / Кросс</label>
+            <input class="inp-box" id="breedName" placeholder="Ломан, Доминант..." required maxlength="60">
           </div>
           <div class="field" style="margin-top:0;">
-            <label>🔢 Количество (шт.)</label>
-            <input id="breedCount" type="number" min="1" step="1" placeholder="10" required>
+            <label class="field-lbl">🔢 Количество (шт.)</label>
+            <input class="inp-box" id="breedCount" type="number" min="1" step="1" placeholder="10" required>
           </div>
         </div>
 
         <div class="row">
           <div class="field">
-            <label>🐣 Дата вылупа</label>
-            <input id="breedHatchDate" type="date" required>
+            <label class="field-lbl">🐣 Дата вылупа</label>
+            <input class="inp-box" id="breedHatchDate" type="date" required>
           </div>
           <div class="field">
-            <label>🥚 Начало кладки</label>
-            <input id="breedLayDate" type="date">
+            <label class="field-lbl">🥚 Начало кладки</label>
+            <input class="inp-box" id="breedLayDate" type="date">
 
-            <!-- Кастомный чекбокс со 100% видимой галочкой -->
             <label class="custom-checkbox-row">
               <input type="checkbox" id="breedNotLaying">
               <div class="custom-checkbox-box">
@@ -845,7 +705,6 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
           </div>
         </div>
 
-        <!-- Кнопка со скрепкой: прикрепить фото -->
         <label class="attach-photo-btn">
           <span>📎</span>
           <span id="photoBtnLabel">Прикрепить фото курочки</span>
@@ -861,7 +720,6 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   </div>
 </div>
 
-<!-- Модальное окно: ОБЛОЖКИ -->
 <div class="modal" id="skinModal" role="dialog" aria-modal="true">
   <div class="sheet">
     <div class="sheet-header">
@@ -872,7 +730,6 @@ input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select
   </div>
 </div>
 
-<!-- Просмотр фото на весь экран -->
 <div class="photo-viewer-modal" id="photoViewerModal" onclick="this.classList.remove('open')">
   <img id="photoViewerImg" class="photo-viewer-img" alt="Фото курочки" src="">
 </div>
@@ -939,7 +796,6 @@ function formatDate(isoStr) {
   return `${parts[2]}.${parts[1]}.${parts[0]}`;
 }
 
-/* Сжатие фото */
 function compressPhoto(file, callback) {
   const reader = new FileReader();
   reader.onload = function(e) {
@@ -981,7 +837,6 @@ document.getElementById('breedPhotoInput').addEventListener('change', function(e
   });
 });
 
-/* Чекбокс Не несётся */
 const notLayingCheckbox = document.getElementById('breedNotLaying');
 const layDateInput = document.getElementById('breedLayDate');
 notLayingCheckbox.addEventListener('change', function() {
@@ -995,7 +850,6 @@ notLayingCheckbox.addEventListener('change', function() {
   }
 });
 
-/* Отрисовка курочки в шапке */
 function hen(theme='classic', sad=false) {
   const eyes = sad
     ? '<path d="m51 41 5 3m14-3-5 3" stroke="#32483a" stroke-width="2.8" stroke-linecap="round"/><ellipse cx="70" cy="49" rx="2" ry="3" fill="#85bdd7"/>'
@@ -1117,7 +971,6 @@ function render() {
   renderBreeds();
 }
 
-/* Список клиентов */
 function renderGroupedClients() {
   const listEl = document.getElementById('clientsGroupedList');
   if (!sales.length) {
@@ -1216,7 +1069,6 @@ window.toggleClientOrders = function(idx) {
   }
 };
 
-/* Отрисовка пород кур v0.6: с кнопками Редактировать ✏️ и Удалить ✕ */
 function renderBreeds() {
   const list = document.getElementById('breedsList');
   if (!breeds.length) {
@@ -1269,7 +1121,6 @@ function renderBreeds() {
   }).join('');
 }
 
-/* Редактирование карточки породы */
 window.startEditBreed = function(id) {
   const b = breeds.find(item => item.id === id);
   if (!b) return;
@@ -1336,7 +1187,6 @@ window.showFullPhoto = function(url) {
   modal.classList.add('open');
 };
 
-/* Сохранение формы породы (новое или редактирование) */
 document.getElementById('breedForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const editId = document.getElementById('breedEditId').value;
@@ -1349,7 +1199,6 @@ document.getElementById('breedForm').addEventListener('submit', function(e) {
   if (!name || isNaN(count)) return;
 
   if (editId) {
-    // Редактирование существующей породы
     const idNum = parseInt(editId);
     breeds = breeds.map(b => {
       if (b.id === idNum) {
@@ -1367,7 +1216,6 @@ document.getElementById('breedForm').addEventListener('submit', function(e) {
     });
     toast('Порода обновлена ✅');
   } else {
-    // Добавление новой породы
     breeds.push({
       id: Date.now(),
       name,
@@ -1395,7 +1243,6 @@ window.deleteBreed = function(id) {
   }
 };
 
-/* Добавление продажи */
 document.getElementById('saleForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const buyer = document.getElementById('buyer').value.trim();
@@ -1440,7 +1287,6 @@ window.deleteSaleItem = function(id) {
   render();
 };
 
-/* Спойлер клиентов */
 const spoilerHeader = document.getElementById('clientsSpoilerToggle');
 const spoilerBody = document.getElementById('clientsSpoilerBody');
 spoilerHeader.addEventListener('click', () => {
@@ -1449,7 +1295,6 @@ spoilerHeader.addEventListener('click', () => {
   spoilerHeader.classList.toggle('open', !isOpen);
 });
 
-/* Модалки */
 document.getElementById('breedsBtn').onclick = () => document.getElementById('breedsModal').classList.add('open');
 document.getElementById('breedsClose').onclick = () => document.getElementById('breedsModal').classList.remove('open');
 document.getElementById('breedsModal').onclick = e => { if(e.target === document.getElementById('breedsModal')) document.getElementById('breedsModal').classList.remove('open'); };
@@ -1458,7 +1303,6 @@ document.getElementById('skinsOpen').onclick = () => document.getElementById('sk
 document.getElementById('skinsClose').onclick = () => document.getElementById('skinModal').classList.remove('open');
 document.getElementById('skinModal').onclick = e => { if(e.target === document.getElementById('skinModal')) document.getElementById('skinModal').classList.remove('open'); };
 
-/* Цель */
 document.getElementById('goalForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const title = document.getElementById('goalName').value.trim();
@@ -1479,7 +1323,6 @@ function toast(msg) {
   window.toastTimer = setTimeout(() => t.style.display = 'none', 2500);
 }
 
-/* Экспорт и бэкап */
 document.getElementById('exportCSV').onclick = () => {
   if (!sales.length) { alert('Нет данных для выгрузки'); return; }
   let csv = '\uFEFFДата;Покупатель;Количество дес.;Цена;Сумма;Оплата;Заметка\n';
